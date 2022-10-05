@@ -1,6 +1,15 @@
 import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
+function handleClick() {
+  history.push("/login");
+}
+
+function handleLogout() {
+  setIsLoggedIn(false);
+  history.push("/login");
+}
+
 const linkStyles = {
   width: "100px",
   padding: "12px",
@@ -20,6 +29,10 @@ function Navbar({ setIsLoggedIn }) {
 
   return (
     <div>
+       <nav>
+      <button onClick={handleClick}>Logout</button>
+    </nav>
+
       <NavLink
         to="/"
         /* set exact so it knows to only set activeStyle when route is deeply equal to link */
